@@ -27,5 +27,7 @@ test_results_joins = { 'techsamvit_table_tests_results_answers.csv': {
 
 source_directory = parse_path(sys.argv)
 test_results = joiner(test_results_joins, source_directory, 'techsamvit_table_tests_results_answers.csv')
-test_results.to_csv('test_results.csv', columns=['title', 'name', 'email'])
-test_results.to_csv('test_answers_submitted.csv')
+outputFilename = 'test_answers_submitted.csv'
+test_results.to_csv(outputFilename,
+                    columns=['id', 'tests_result_id', 'question_id', 'name', 'email', 'lesson_id', 'suggestion'])
+print("Test results written to " + outputFilename)
